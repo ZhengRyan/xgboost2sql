@@ -6,13 +6,13 @@
 
 |  微信 |  微信公众号 |
 | :---: | :----: |
-| <img src="https://github.com/ZhengRyan/autotreemodel/blob/master/images/RyanZheng.png" alt="RyanZheng.png" width="50%" border=0/> | <img src="https://github.com/ZhengRyan/autotreemodel/blob/master/images/%E9%AD%94%E9%83%BD%E6%95%B0%E6%8D%AE%E5%B9%B2%E9%A5%AD%E4%BA%BA.png" alt="魔都数据干饭人.png" width="50%" border=0/> |
-|  RyanZheng  | 魔都数据干饭人 |
+| <img src="https://github.com/ZhengRyan/autotreemodel/blob/master/images/%E5%B9%B2%E9%A5%AD%E4%BA%BA.png" alt="RyanZheng.png" width="50%" border=0/> | <img src="https://github.com/ZhengRyan/autotreemodel/blob/master/images/%E9%AD%94%E9%83%BD%E6%95%B0%E6%8D%AE%E5%B9%B2%E9%A5%AD%E4%BA%BA.png" alt="魔都数据干饭人.png" width="50%" border=0/> |
+|  干饭人  | 魔都数据干饭人 |
 
 
 > 仓库地址：https://github.com/ZhengRyan/xgboost2sql
 > 
-> 微信公众号文章：
+> 微信公众号文章：https://mp.weixin.qq.com/s/z3IjzMFKP7iEoag5KP6nAA
 > 
 > pipy包：https://pypi.org/project/xgboost2sql/
 
@@ -35,12 +35,12 @@ Source code install（源码安装）
 python setup.py install
 ```
 
-### 运行样例
-####【注意：：：核验对比python模型预测出来的结果和sql语句预测出来的结果是否一致请查看"https://github.com/ZhengRyan/xgboost2sql/examples/tutorial_code.ipynb"教程代码】
+## 运行样例
+###【注意：：：核验对比python模型预测出来的结果和sql语句预测出来的结果是否一致请查看教程代码】"https://github.com/ZhengRyan/xgboost2sql/examples/tutorial_code.ipynb"
 
 + 导入相关依赖
 ```python
-import xgboost as xgb
+import xgboost as xgb 
 from sklearn.datasets import make_classification
 from sklearn.model_selection import train_test_split
 from xgboost2sql import XGBoost2Sql
@@ -63,7 +63,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1024)
 ###训练模型
 model = xgb.XGBClassifier(n_estimators=3)
 model.fit(X_train, y_train)
-xgb.to_graphviz(model)
+#xgb.to_graphviz(model)
 ```
 + 使用xgboost2sql工具包将模型转换成的sql语句
 ```python
