@@ -105,14 +105,10 @@ class XGBoost2Sql:
             return -math.log((1 - x) / x)
         except:
             warnings.warn(
-                'xgboost model version less than :: 1.0.0, '
-                'If the base_score parameter is not 0.5 when developing the model, '
-                'Insert the base_score value into the formula "-math.log((1-x)/x)" '
-                'and replace the -0.0 value at +(-0.0) in the first sentence of the generated sql statement with the calculated value')
+                'xgboost model version less than :: 1.0.0, If the base_score parameter is not 0.5 when developing the model, Insert the base_score value into the formula "-math.log((1-x)/x)" and replace the -0.0 value at +(-0.0) in the first sentence of the generated sql statement with the calculated value')
             warnings.warn(
-                'xgboost 模型的版本低于1.0.0，如果开发模型时， base_score 参数不是0.5，'
-                '请将base_score的参数取值带入"-math.log((1 - x) / x)"公式，计算出的值，替换掉生成的sql语句第1句中的+(-0.0)处的-0.0取值')
-            return 0
+                'xgboost 模型的版本低于1.0.0，如果开发模型时， base_score 参数不是0.5，请将base_score的参数取值带入"-math.log((1 - x) / x)"公式，计算出的值，替换掉生成的sql语句第1句中的+(-0.0)处的-0.0取值')
+            return -0.0
 
     def pre_tree(self, lines, is_right, n):
         """

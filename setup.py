@@ -4,13 +4,26 @@
 
 from setuptools import setup, find_packages
 
-with open('README.rst') as readme_file:
-    readme = readme_file.read()
+NAME = 'xgboost2sql'
 
-with open('HISTORY.rst') as history_file:
-    history = history_file.read()
 
-requirements = ['Click>=7.0', ]
+
+def get_requirements(stage=None):
+    file_name = 'requirements'
+
+    if stage is not None:
+        file_name = f"{file_name}-{stage}"
+
+    requirements = []
+    with open(f"{file_name}.txt", 'r') as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith('-'):
+                continue
+
+            requirements.append(line)
+
+    return requirements
 
 test_requirements = ['pytest>=3', ]
 
@@ -34,12 +47,13 @@ setup(
             'xgboost2sql=xgboost2sql.cli:main',
         ],
     },
-    install_requires=requirements,
+    install_requires=get_requirements(),
     license="MIT license",
-    long_description=readme + '\n\n' + history,
+    long_description=open('README.md', encoding='utf-8').read(),
+    long_description_content_type='text/markdown',
     include_package_data=True,
     keywords='xgboost2sql',
-    name='xgboost2sql',
+    name=NAME,
     packages=find_packages(include=['xgboost2sql', 'xgboost2sql.*']),
     test_suite='tests',
     tests_require=test_requirements,
