@@ -36,7 +36,7 @@ python setup.py install
 ```
 
 ## 运行样例
-###【注意：：：核验对比python模型预测出来的结果和sql语句预测出来的结果是否一致请查看教程代码】"https://github.com/ZhengRyan/xgboost2sql/examples/tutorial_code.ipynb"
+###【注意：：：核验对比python模型预测出来的结果和sql语句预测出来的结果是否一致请查看教程代码】tutorial_code.ipynb。代码位置："https://github.com/ZhengRyan/xgboost2sql/tree/master/examples"
 
 + 导入相关依赖
 ```python
